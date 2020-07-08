@@ -74,10 +74,10 @@
 				9F708241247D5F0C003BE658 /* LaunchScreen.storyboard */,
 				9F708244247D5F0C003BE658 /* Info.plist */,
 				9FDC178724A8B85600D4ED2B /* Constants.swift */,
+				9F9A6BD224B203AA0057687C /* ConstantsTemplate.swift */,
 				9FDC178924A8D46B00D4ED2B /* Video.swift */,
 				9FDC178B24A8D61700D4ED2B /* Model.swift */,
 				9FB3E53324ABCD1800ECD2AD /* Response.swift */,
-				9F9A6BD224B203AA0057687C /* ConstantsTemplate.swift */,
 			);
 			path = "youtube-onedaybuild";
 			sourceTree = "<group>";

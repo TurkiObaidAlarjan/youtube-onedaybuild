@@ -8,11 +8,20 @@
 
 import Foundation
 
+protocol ModelDelegate {
+    
+    func videosFetched(_ videos:[Video])
+}
+
+
+
 //this class is going to make the API call
 //and pull back the data
 //then send it over to the ViewController
 
 class Model {
+    
+    var delegate: ModelDelegate?
     
     func getVideos(){
         
@@ -45,7 +54,20 @@ class Model {
                 //now run the decode methode
                 let response = try decoder.decode(Response.self, from: data!)
                 
-                dump(response)
+                if response.items != nil {
+                    
+                    
+                    self.delegate?.videosFetched(response.items!)
+                    DispatchQueue.main.async {
+                        //after we've parsed the JSON and we checked that there
+                        //are videos after we checke it isnt nil
+                        //then it's going to Call the "videosReturned " method of the delegate
+                        //and passed those videos throug it
+                        
+                    }
+                }
+                
+                //dump(response)
                 
             } catch {
                 
