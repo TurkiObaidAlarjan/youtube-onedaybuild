@@ -24,19 +24,16 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         tableView.dataSource = self
         tableView.delegate = self
         
-        // Set itself as the datasource and the delegate
-        tableView.delegate = self
-        
         model.getVideos()
     }
     
-    // MARK: - Model Delegate Mehods
+    // MARK: - Model Delegate Methods
     
     func videosFetched(_ videos: [Video]) {
-        // Set the returned videos to our vide property
+        // Set the returned videos to our video property
         self.videos = videos
         
-        
+        print("\(videos)")
         // Refresh the tableview
         tableView.reloadData()
     }
@@ -46,7 +43,6 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         //how many row you wanna the table view to display
         
-        
         return videos.count
     }
     
@@ -54,14 +50,13 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         //tableView asking every row :
         //what data do i display ? what does that row look like ?
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: Constants.VIDEOCELL_ID, for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: Constants.VIDEOCELL_ID, for: indexPath) as! VideoTableViewCell
         
         // Configure the cell with the data
-        // Get the title for the video in qustion
-        let title = self.videos[indexPath.row].title
-        
-        cell.textLabel?.text = title
-        
+        // Grab the Video
+        let video = self.videos[indexPath.row]
+        // Then pass it
+        cell.setCell(video)
         // Return the cell
         //give the cell back to the tableView for displaying
         

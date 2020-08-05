@@ -57,13 +57,13 @@ class Model {
                 if response.items != nil {
                     
                     
-                    self.delegate?.videosFetched(response.items!)
+                    
                     DispatchQueue.main.async {
                         //after we've parsed the JSON and we checked that there
                         //are videos after we checke it isnt nil
                         //then it's going to Call the "videosReturned " method of the delegate
                         //and passed those videos throug it
-                        
+                        self.delegate?.videosFetched(response.items!)
                     }
                 }
                 
